@@ -7,6 +7,11 @@ using System.Web.Routing;
 using System.Web.Security;
 using WingtipToys;
 
+using System.Web.SessionState;
+using System.Data.Entity;
+using WingtipToys.Models;
+
+
 namespace WingtipToys
 {
     public class Global : HttpApplication
@@ -17,6 +22,10 @@ namespace WingtipToys
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterOpenAuth();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            // Initialize the product database
+            Database.SetInitializer(new ProductDatabaseInitializer());
+
         }
 
         void Application_End(object sender, EventArgs e)

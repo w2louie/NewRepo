@@ -17,3 +17,4 @@ namespace WingtipToys.Models
         public virtual ICollection<Product> Products { get; set; }
     }
 }
+
